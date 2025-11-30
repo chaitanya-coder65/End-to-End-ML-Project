@@ -45,8 +45,8 @@ class DataTransformation:
                     ("scaler",StandardScaler(with_mean=False))
                 ]
             )
-            logging.info(f"categorical feature: (categorical_feature)")
-            logging.info(f"numerical feature: (numerical_feature)")
+            logging.info(f"categorical feature: {categorical_feature}")
+            logging.info(f"numerical feature: {numerical_feature}")
 
             preprocessor = ColumnTransformer(
                 [
