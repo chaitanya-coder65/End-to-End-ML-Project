@@ -209,9 +209,11 @@
         </div>
     </div>
 
-    <div class="footer">
-        © 2025 Student Performance AI Predictor — Powered by Machine Learning
+    {% if results is defined and results is not none %}
+    <div class="result animate-result">
+            🎯 Predicted Math Score: <span>{{ results }}</span>
     </div>
+    {% endif %}
 
 </body>
 </html>
