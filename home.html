@@ -16,8 +16,6 @@
             overflow-x: hidden;
         }
 
-        /* ================= Neon Animated Background ================= */
-
         .bg-lines {
             position: fixed;
             top: 0;
@@ -41,8 +39,6 @@
             from { transform: translateY(-100%); }
             to { transform: translateY(100%); }
         }
-
-        /* ================= Main Form Card ================= */
 
         .container {
             width: 90%;
@@ -78,15 +74,8 @@
             border-radius: 14px;
             background: #0c1117;
             border: 1px solid rgba(0,255,200,0.2);
-            box-shadow: inset 0 0 10px rgba(0,255,200,0.08);
             color: white;
             margin-bottom: 18px;
-            transition: 0.3s;
-        }
-
-        select:focus, input:focus {
-            box-shadow: 0 0 15px rgba(0,255,200,0.5);
-            outline: none;
         }
 
         .btn {
@@ -99,69 +88,24 @@
             font-weight: 600;
             font-size: 16px;
             cursor: pointer;
-            box-shadow: 0 0 20px rgba(0,255,200,0.35);
-            transition: 0.25s;
+            margin-top: 10px;
         }
 
         .btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(0,255,200,0.5);
         }
 
-        /* ================= Prediction Result Animation ================= */
-
-        .result {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 16px;
-            background: rgba(0,255,200,0.1);
+        .notice {
             text-align: center;
-            color: #00f5d4;
-            font-size: 22px;
-            font-weight: 600;
-            border: 1px solid rgba(0,255,200,0.3);
-            box-shadow: inset 0 0 25px rgba(0,255,200,0.15);
-        }
-
-        /* Reveal animation */
-        .animate-result {
-            opacity: 0;
-            transform: translateY(35px) scale(0.95);
-            animation: fadeSlideIn 1.2s ease-out forwards,
-                       glowPulse 2.7s ease-in-out infinite alternate;
-        }
-
-        @keyframes fadeSlideIn {
-            0% {
-                opacity: 0;
-                transform: translateY(40px) scale(0.92);
-            }
-            60% {
-                opacity: 1;
-                transform: translateY(0px) scale(1.03);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0px) scale(1);
-            }
-        }
-
-        @keyframes glowPulse {
-            from {
-                box-shadow: inset 0 0 15px rgba(0,255,200,0.15),
-                            0 0 20px rgba(0,255,200,0.25);
-            }
-            to {
-                box-shadow: inset 0 0 25px rgba(0,255,200,0.25),
-                            0 0 35px rgba(0,255,200,0.45);
-            }
+            margin-top: 15px;
+            font-size: 14px;
+            opacity: 0.7;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Animated Background Lines -->
     <div class="bg-lines">
         <div class="line" style="left: 15%; animation-duration: 5.5s;"></div>
         <div class="line" style="left: 40%; animation-duration: 7s;"></div>
@@ -173,65 +117,62 @@
 
         <h1>AI-Powered Score Predictor</h1>
 
-        <form action="{{ url_for('predict_datapoint') }}" method="post">
+        <!-- This form is static for Netlify -->
+        <form>
 
             <label>Gender</label>
-            <select name="gender" required>
-                <option selected disabled>Select Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+            <select required>
+                <option disabled selected>Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
             </select>
 
             <label>Race or Ethnicity</label>
-            <select name="ethnicity" required>
-                <option selected disabled>Select Ethnicity</option>
-                <option value="group A">Group A</option>
-                <option value="group B">Group B</option>
-                <option value="group C">Group C</option>
-                <option value="group D">Group D</option>
-                <option value="group E">Group E</option>
+            <select required>
+                <option disabled selected>Select Ethnicity</option>
+                <option>Group A</option>
+                <option>Group B</option>
+                <option>Group C</option>
+                <option>Group D</option>
+                <option>Group E</option>
             </select>
 
             <label>Parental Education</label>
-            <select name="parental_level_of_education" required>
-                <option selected disabled>Select Education</option>
-                <option value="associate's degree">Associate's Degree</option>
-                <option value="bachelor's degree">Bachelor's Degree</option>
-                <option value="high school">High School</option>
-                <option value="master's degree">Master's Degree</option>
-                <option value="some college">Some College</option>
-                <option value="some high school">Some High School</option>
+            <select required>
+                <option disabled selected>Select Education</option>
+                <option>Associate's Degree</option>
+                <option>Bachelor's Degree</option>
+                <option>High School</option>
+                <option>Master's Degree</option>
+                <option>Some College</option>
+                <option>Some High School</option>
             </select>
 
             <label>Lunch Type</label>
-            <select name="lunch" required>
-                <option selected disabled>Select Lunch</option>
-                <option value="free/reduced">Free/Reduced</option>
-                <option value="standard">Standard</option>
+            <select required>
+                <option disabled selected>Select Lunch</option>
+                <option>Free/Reduced</option>
+                <option>Standard</option>
             </select>
 
             <label>Test Preparation Course</label>
-            <select name="test_preparation_course" required>
-                <option selected disabled>Select Course</option>
-                <option value="none">None</option>
-                <option value="completed">Completed</option>
+            <select required>
+                <option disabled selected>Select Course</option>
+                <option>None</option>
+                <option>Completed</option>
             </select>
 
             <label>Reading Score (0–100)</label>
-            <input type="number" name="reading_score" required min="0" max="100">
+            <input type="number" min="0" max="100" required>
 
             <label>Writing Score (0–100)</label>
-            <input type="number" name="writing_score" required min="0" max="100">
+            <input type="number" min="0" max="100" required>
 
-            <button class="btn">Predict Math Score</button>
+            <button class="btn" type="button">Predict Math Score</button>
         </form>
 
-        {% if results is defined and results is not none %}
-        <div class="result animate-result">
-            🎯 Predicted Math Score: <span>{{ results }}</span>
-        </div>
-        {% endif %}
-
+        <p class="notice">⚠️ Prediction works only when connected to backend API.</p>
     </div>
+
 </body>
 </html>

@@ -24,9 +24,6 @@
             overflow-x: hidden;
         }
 
-        /* ============================================================
-           BACKGROUND ANIMATED LASER LINES (just like screenshot)
-        ============================================================ */
         .laser-lines {
             position: fixed;
             top: 0;
@@ -46,29 +43,15 @@
             animation: sway 5s infinite ease-in-out;
         }
 
-        .laser:nth-child(1) {
-            top: 20%;
-        }
-
-        .laser:nth-child(2) {
-            top: 40%;
-            animation-duration: 7s;
-        }
-
-        .laser:nth-child(3) {
-            top: 60%;
-            animation-duration: 6s;
-        }
+        .laser:nth-child(1) { top: 20%; }
+        .laser:nth-child(2) { top: 40%; animation-duration: 7s; }
+        .laser:nth-child(3) { top: 60%; animation-duration: 6s; }
 
         @keyframes sway {
             0% { transform: translateX(-50%) scaleX(0.3); }
             50% { transform: translateX(50%) scaleX(1); }
             100% { transform: translateX(-50%) scaleX(0.3); }
         }
-
-        /* ============================================================
-           HERO SECTION (Matches screenshot design)
-        ============================================================ */
 
         .hero {
             text-align: center;
@@ -114,10 +97,6 @@
             box-shadow: 0 0 30px rgba(0,255,200,0.55);
         }
 
-        /* ============================================================
-           METRIC CARDS
-        ============================================================ */
-
         .metrics {
             display: flex;
             justify-content: center;
@@ -139,10 +118,6 @@
             color: var(--neon);
             margin-bottom: 10px;
         }
-
-        /* ============================================================
-           HOW IT WORKS SECTION (matches your screenshot on right side)
-        ============================================================ */
 
         .section {
             max-width: 900px;
@@ -185,21 +160,6 @@
             box-shadow: 0 0 35px rgba(0,255,200,0.3);
         }
 
-        .step-card h3 {
-            font-size: 20px;
-            color: var(--neon);
-            margin-bottom: 10px;
-        }
-
-        .step-card p {
-            opacity: 0.75;
-            font-size: 15px;
-        }
-
-        /* ============================================================
-           FOOTER
-        ============================================================ */
-
         .footer {
             text-align: center;
             opacity: 0.5;
@@ -211,81 +171,44 @@
 
 <body>
 
-    <!-- Background moving teal laser lines -->
     <div class="laser-lines">
         <div class="laser"></div>
         <div class="laser"></div>
         <div class="laser"></div>
     </div>
 
-    <!-- HERO SECTION -->
     <div class="hero">
         <h1>Powering the Future of Student Performance</h1>
-        <p>
-            Unlock predictive insights with AI — estimate student exam performance 
-            using advanced machine learning models trained on real academic datasets.
-        </p>
+        <p>Unlock predictive insights using advanced machine learning models trained on real datasets.</p>
 
-        <a href="{{ url_for('predict_datapoint') }}">
+        <!-- FIXED BUTTON FOR NETLIFY -->
+        <a href="home.html">
             <button class="btn-primary">Start Prediction</button>
         </a>
     </div>
 
-    <!-- METRICS LIKE YOUR SCREENSHOT -->
     <div class="metrics">
-        <div class="metric-box">
-            <h2>95%+</h2>
-            Prediction Accuracy
-        </div>
-        <div class="metric-box">
-            <h2>10,000+</h2>
-            Training Records
-        </div>
-        <div class="metric-box">
-            <h2>0.01s</h2>
-            Prediction Time
-        </div>
-        <div class="metric-box">
-            <h2>ML</h2>
-            Smart Algorithms
-        </div>
+        <div class="metric-box"><h2>95%+</h2> Prediction Accuracy</div>
+        <div class="metric-box"><h2>10,000+</h2> Training Records</div>
+        <div class="metric-box"><h2>0.01s</h2> Prediction Time</div>
+        <div class="metric-box"><h2>ML</h2> Smart Algorithms</div>
     </div>
 
-    <!-- HOW IT WORKS -->
     <div class="section">
         <h2>How Our AI Prediction Works</h2>
         <p>
-            Our model analyzes relationships between reading, writing, demographics, 
-            and study factors to determine how they influence math performance.
-            Using thousands of real exam samples, the AI learns deep academic patterns.
+            Our model analyzes relationships between reading, writing, demographics,
+            and study factors to predict math performance.
         </p>
 
         <div class="step-grid">
-
-            <div class="step-card">
-                <h3>📘 Step 1: Input Data</h3>
-                <p>Provide basic student attributes such as gender, ethnicity, reading & writing scores.</p>
-            </div>
-
-            <div class="step-card">
-                <h3>🤖 Step 2: AI Analysis</h3>
-                <p>The ML model evaluates learning indicators and predicts a likely math performance score.</p>
-            </div>
-
-            <div class="step-card">
-                <h3>📊 Step 3: Pattern Matching</h3>
-                <p>AI compares your inputs with thousands of known patterns from real student datasets.</p>
-            </div>
-
-            <div class="step-card">
-                <h3>🎯 Step 4: Prediction Output</h3>
-                <p>You instantly get a predicted math score — clear, simple, and accurate.</p>
-            </div>
-
+            <div class="step-card"><h3>📘 Step 1: Input Data</h3><p>Provide basic student attributes.</p></div>
+            <div class="step-card"><h3>🤖 Step 2: AI Analysis</h3><p>The model evaluates your inputs.</p></div>
+            <div class="step-card"><h3>📊 Step 3: Pattern Matching</h3><p>AI compares patterns with thousands of examples.</p></div>
+            <div class="step-card"><h3>🎯 Step 4: Prediction Output</h3><p>You instantly receive a predicted math score.</p></div>
         </div>
     </div>
 
-    <!-- FOOTER -->
     <div class="footer">
         © 2025 Student Performance AI Predictor — Powered by Machine Learning
     </div>
